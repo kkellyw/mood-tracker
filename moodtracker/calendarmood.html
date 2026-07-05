@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Kulim Park' rel='stylesheet'>
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="calendarmood.css">
+
+
+    <title>calendar mood tracker</title>
+    <script src="https://www.gstatic.com/firebasejs/9.16.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.16.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.16.0/firebase-firestore-compat.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js'></script>
+</head>
+<body>
+    <header>
+        <h1>Choose a day to track your mood</h1>
+    </header> 
+    <div id="calendar"></div>
+    
+    <div id="mood-popup" class="popup">
+        <div class="popup-content">
+            <span class="close" id="close-popup">&times;</span>
+            <h2>Choose Your Mood</h2>
+            <div id="mood-container">
+                <img src="happymood.png" alt="Happy" class="mood-image" data-mood="happy">
+                <img src="sadmood.png" alt="Sad" class="mood-image" data-mood="sad">
+                <img src="madmood.png" alt="Mad" class="mood-image" data-mood="mad">
+                <img src="cryingmood.png" alt="Crying" class="mood-image" data-mood="crying">
+                <img src="neutralmood.png" alt="Neutral" class="mood-image" data-mood="neutral">
+            </div>
+            <button id="save-mood">Save Mood</button>
+        </div>
+    </div>
+
+    <script src="calendarmood.js"></script>
+</body>
+</html>
+
