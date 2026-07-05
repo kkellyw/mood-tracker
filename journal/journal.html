@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>journal page</title>
+
+    <script src="https://www.gstatic.com/firebasejs/9.16.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.16.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.16.0/firebase-firestore-compat.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Kulim Park' rel='stylesheet'>
+    <link rel="stylesheet" href="journal.css">
+    <script>
+
+        const firebaseConfig = {
+    apiKey: "AIzaSyDZesxg3YrK-qU3DLziCDYc_SJz83qZAE8",
+    authDomain: "mood-tracker-ca314.firebaseapp.com",
+    projectId: "mood-tracker-ca314",
+    storageBucket: "mood-tracker-ca314.appspot.com",
+    messagingSenderId: "899895203785",
+    appId: "1:899895203785:web:2ebfae24eb7a3c031afa18"
+};
+        firebase.initializeApp(firebaseConfig);
+    </script>
+</head>
+<body>
+    <div class="center-container">
+        <h1>Journal about your day!</h1>
+        <textarea id="journal-entry" placeholder="Write your journal entry here..."></textarea>
+        <button id="save-journal">Save</button>
+    </div>    
+
+    <script src="journal.js"></script>
+</body>
+</html>
