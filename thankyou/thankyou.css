@@ -1,0 +1,112 @@
+body {
+    font-family: 'Kulim Park';
+    font-size: 28px;
+    color: #F9D3D2;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: white;
+    text-align: center;
+}
+
+.container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.dropdown {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.dropbtn {
+    background-color: pink; 
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.happy-menu {
+    width: 65px;
+    height: 65px; 
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.center-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    width: 20%;
+}
+
+.suggestions-container {
+    margin-top: 30px;
+    text-align: center;
+    font-family: 'Kulim Park', sans-serif;
+    color: #CEEAF3; 
+}
+
+.suggestions-container h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+#suggestions-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+
+.suggestion-item {
+    background-color: #CEEAF3; 
+    color: white;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.2s ease-in-out; 
+}
+
+.suggestion-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}

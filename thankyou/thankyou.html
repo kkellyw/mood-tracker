@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>confirmation page</title>
+
+    <script src="https://www.gstatic.com/firebasejs/9.16.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.16.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.16.0/firebase-firestore-compat.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Kulim Park' rel='stylesheet'>
+    <link rel="stylesheet" href="thankyou.css">
+</head>
+<body>
+    <header>
+        <h1>Mood Tracked!</h1>
+    </header>
+    <div class="container">
+        <p id="mood-summary"></p>
+
+    <div class="suggestions-container">
+        <h2>Based on your mood, you can:</h2>
+        <ul id="suggestions-list"></ul>
+    </div>
+        
+
+        <div class="dropdown">
+            <button class="dropbtn">
+                <img src="happy2.png" alt="happymenu" class="happy-menu"> 
+            </button>
+            <div class="dropdown-content" id="dropdown-content">
+                <a href="#" id="logout">Log Out</a>
+                <a href="../moodtracker/calendarmood.html">Calendar MoodTracker</a>
+                <a href="../login/login.html">Login/Signup</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyDZesxg3YrK-qU3DLziCDYc_SJz83qZAE8",
+            authDomain: "mood-tracker-ca314.firebaseapp.com",
+            projectId: "mood-tracker-ca314",
+            storageBucket: "mood-tracker-ca314.appspot.com",
+            messagingSenderId: "899895203785",
+            appId: "1:899895203785:web:2ebfae24eb7a3c031afa18"
+        };
+        firebase.initializeApp(firebaseConfig);
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const selectedDate = urlParams.get('date');
+        const selectedMood = urlParams.get('mood');
+        const moodSummary = document.getElementById('mood-summary');
+        moodSummary.textContent = `for: ${selectedDate}`;
+
+        document.getElementById('logout').addEventListener('click', async (e) => {
+            e.preventDefault();
+            try {
+                await firebase.auth().signOut();
+                alert('You have been logged out.');
+                window.location.href = '../login/login.html'; 
+            } catch (error) {
+                console.error('Error logging out:', error);
+            }
+        });
+
+    function getSuggestions(mood) {
+    const suggestions = {
+        happy: ["Go for a walk in nature", "Call a friend", "Listen to your favorite music"],
+        crying: ["Take a nap", "Watch your favorite show", "Write in your journal"],
+        sad: ["Text friends", "Make your favorite food", "Take a relaxing bath"],
+        mad: ["Go for a run", "Try some meditation", "Write down your feelings"],
+        neutral: ["Read a book", "Pick up a new hobby", "Do a puzzle"]
+    };
+
+    return suggestions[mood] || ["No specific suggestions available."];
+}
+
+const suggestionsList = document.getElementById('suggestions-list');
+const moodSuggestions = getSuggestions(selectedMood.toLowerCase());
+
+moodSuggestions.forEach(suggestion => {
+    const suggestionItem = document.createElement('div');
+    suggestionItem.classList.add('suggestion-item');
+    suggestionItem.textContent = suggestion;
+    suggestionsList.appendChild(suggestionItem);
+});
+
+
+    </script>
+</body>
+</html>
+
+
